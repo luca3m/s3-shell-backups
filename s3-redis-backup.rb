@@ -61,7 +61,9 @@ redis.sentinel( :masters ).each do |m|
 
   FileUtils.cp rdb, src
   %x( /usr/bin/s3cmd put #{src} #{dst} )
-  
-  puts "Done!"
 
 end
+
+FileUtils.rm_rf( SRCDIR )
+
+puts "Done!"
